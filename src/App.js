@@ -19,7 +19,7 @@ class App extends React.Component {
     }
 
     // Generate HTML for all activities.
-    async parseActivities()  {
+    parseActivities()  {
         const csv = require('csv-parser');
         let fs = require('fs');
         const results = [];
@@ -31,6 +31,7 @@ class App extends React.Component {
         stream.on('end', () => {
             console.log(results);
         });
+        return results;
     }
 
     // Render ALL activities. Called by index.js and inserted into index.html.
