@@ -6,21 +6,26 @@ import pandas as pd
 
 # Find the best movies from IMDB and return as a dictionary.
 def scrape_movies() -> dict:
-    try:
-        URL = 'https://www.imdb.com/search/title/?groups=top_250&sort=user_rating'
-        page = requests.get(URL)
+    URL = 'https://www.imdb.com/search/title/?groups=top_250&sort=user_rating'
+    page = requests.get(URL)
 
-        soup = BeautifulSoup(page.content, 'html.parser')
+    soup = BeautifulSoup(page.content, 'html.parser')
 
-        results = soup.find(id='main')
+    results = soup.find(class_='lister-list')
 
-        elems = results.find_all('h3','lister-item-header')
-        movies = {}
-        for elem in elems:
-            for i, y in enumerate(elem.find_all('a')):
-                movies[i] = {"name": y.text, "type": "Movie", "url": "TEST1", "img_url": "TEST2"}
+    elems = results.find_all('div', class_='lister-item mode-advanced')
+    movies = {}
+    for i, elem in enumerate(elems):
+        header = elem.find('h3').find('a')
+        name = header.text
+        url = "https://www.imdb.com" + header['href']
+        img_url = elem.find('div', class_='lister-item-image float-left').find('img')['alt']
+        print(img_url)
+        movies[i] = {"name": name, "type": "Movie", "url": url, "img_url": img_url}
 
-        return movies
-
+    return movies
+    '''try:
+        
     except:
-        return {}
+        print("There was an error.")
+        return {}'''

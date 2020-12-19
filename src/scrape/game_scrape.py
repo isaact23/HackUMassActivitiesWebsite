@@ -19,7 +19,6 @@ def scrape_games() -> dict:
             name = elem.find('span', class_='title').text
             url = elem['href']
             img_url = elem.find('img')['src']
-            print(img_url)
             games[i] = {"name": name, "type": "Video Game", "url": url, "img_url": img_url}
 
         return games
