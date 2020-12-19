@@ -23,7 +23,3 @@ def scrape_games() -> dict:
 
     except:
         return {}
-
-# df = pd.DataFrame(games)
-# df.index = df.index + 1
-# df.to_csv('games.csv')

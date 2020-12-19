@@ -4,20 +4,24 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-URL = 'https://www.imdb.com/search/title/?groups=top_250&sort=user_rating'
-page = requests.get(URL)
+# Find the best movies from IMDB and return as a dictionary.
+def scrape_movies() -> dict:
+    try:
+        URL = 'https://www.imdb.com/search/title/?groups=top_250&sort=user_rating'
+        page = requests.get(URL)
 
-soup = BeautifulSoup(page.content, 'html.parser')
+        soup = BeautifulSoup(page.content, 'html.parser')
 
-results = soup.find(id='main')
+        results = soup.find(id='main')
 
-elems = results.find_all('h3','lister-item-header')
+        elems = results.find_all('h3','lister-item-header')
+        movies = {}
+        for elem in elems:
+            for i, y in enumerate(elem.find_all('a')):
+                movies[i] = {"name": y.text, "type": "Movie", "url": "TEST1", "img_url": "TEST2"}
 
-movies=[]
-for elem in elems:
-    for y in elem.find_all('a'):
-        print(y.text)
-        movies.append(y.text)
-df=pd.DataFrame(movies)
-df.index = df.index + 1
-df.to_csv('movies.csv') 
+        print(movies)
+        return movies
+
+    except:
+        return {}
