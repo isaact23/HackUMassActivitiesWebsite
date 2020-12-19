@@ -5,6 +5,17 @@ From sports to books to video games, you won't miss a thing. The website
 constantly scrapes the internet for the latest activities and consolidates
 them in one place!
 
+## The Tools
+stufftodo.tech uses several tools:
+* React.JS - a frontend library developed by Facebook. Users can change
+filters on the homepage and see activities update in real time.
+* HTML, CSS & JavaScript for web design.
+* Flask - a backend library for Python. Realtime data is scraped from
+popular websites and consolidated into one directory.
+* Python for internet scraping.
+* Domain.com for our stufftodo.tech domain.
+* Google Cloud to host our website, complete with ReactJS and Flask.
+
 ## The Code
 
 ### `/flask-api/`
