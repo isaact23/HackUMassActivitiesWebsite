@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Find the best games from the Steam store and return as a dictionary.
-def scrape_games() -> dict:
+def scrape_games():
     try:
         URL = 'https://store.steampowered.com/search/?filter=topsellers'
         page = requests.get(URL)
@@ -14,14 +14,15 @@ def scrape_games() -> dict:
         results = soup.find(id='search_resultsRows')
 
         elems = results.find_all('a')
-        games = {}
+        games = []
         for i, elem in enumerate(elems):
             name = elem.find('span', class_='title').text
             url = elem['href']
             img_url = elem.find('img')['src']
-            games[i] = {"name": name, "type": "Video Game", "url": url, "img_url": img_url}
+            games.append({"name": name, "type": "Video Game", "url": url, "img_url": img_url})
 
         return games
 
     except:
-        return {}
+        print("Error loading video games.")
+        return []
