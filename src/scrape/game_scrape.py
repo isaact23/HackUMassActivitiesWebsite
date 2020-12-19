@@ -16,4 +16,5 @@ for elem in elems:
     print(elem.text)
     games.append(elem.text)
 df = pd.DataFrame(games)
+df.index = df.index + 1
 df.to_csv('games.csv') 
