@@ -18,6 +18,7 @@ function App() {
         activities.push(
             <a href={value.url}>
                 <div className="activity">
+                    <h2>{value.type}</h2>
                     {value.name}
                 </div>
             </a>

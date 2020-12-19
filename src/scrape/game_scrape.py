@@ -1,7 +1,7 @@
+#!/usr/bin/env python3
+
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-
 
 # Find the best games from the Steam store and return as a dictionary.
 def scrape_games() -> dict:
@@ -16,7 +16,7 @@ def scrape_games() -> dict:
         elems = results.find_all('span', class_='title')
         games = {}
         for i, elem in enumerate(elems):
-            games[i] = {"name": elem.text, "url": "TEST1", "img_url": "TEST2"}
+            games[i] = {"name": elem.text, "type": "Video Game", "url": "TEST1", "img_url": "TEST2"}
             # games.append(elem.text)
 
         return games
