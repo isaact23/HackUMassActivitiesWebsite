@@ -17,4 +17,5 @@ for elem in elems:
         print(y.text)
         movies.append(y.text)
 df=pd.DataFrame(movies)
+df.index = df.index + 1
 df.to_csv('movies.csv') 
