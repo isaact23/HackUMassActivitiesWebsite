@@ -1,24 +1,31 @@
 import React, {useEffect, useState} from "react";
 
-// The react.js application.
-// In index.html, the <div class="root"></root> is the section modified by this code.
-// The code is responsible for getting activity data from scrape/games.csv and generating corresponding HTML.
+// Use Flask to call python and scrape internet data, then
+// generate HTML for each activity found. Called by index.js.
 function App() {
-    const [name, setName] = useState("Empty name");
+    // Call app.py to scrape internet for data
+    const [data, setData] = useState("Empty name");
     useEffect(() => {
-        fetch('/hello').then(res => res.json()).then(data => {
-          setName(data.result);
+        fetch('/scrape').then(res => res.json()).then(data => {
+          setData(data);
         });
         }, []
     );
 
-    const activities = <div class="activity">Activity A</div>;
-    return (
-        <div>
-            <p>{name}</p>
-            activities
-        </div>
-    );
+    // Generate an activity HTML element for each entry in the JSON returned by app.py
+    var activities = [];
+    for (const [key, value] of Object.entries(data)) {
+        activities.push(
+            <a href={value.url}>
+                <div className="activity">
+                    {value.name}
+                </div>
+            </a>
+        );
+    }
+
+    // Return the array of HTML activity elements.=
+    return activities;
 }
 
 export default App;
