@@ -16,10 +16,11 @@ function App() {
     var activities = [];
     for (const [key, value] of Object.entries(data)) {
         activities.push(
-            <a href={value.url}>
+            <a href={value.url} target="_blank">
                 <div className="activity">
                     <h2>{value.type}</h2>
-                    {value.name}
+                    <p>{value.name}</p>
+                    <img src={value.img_url}/>
                 </div>
             </a>
         );

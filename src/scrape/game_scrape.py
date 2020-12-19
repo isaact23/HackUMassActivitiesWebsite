@@ -13,11 +13,14 @@ def scrape_games() -> dict:
 
         results = soup.find(id='search_resultsRows')
 
-        elems = results.find_all('span', class_='title')
+        elems = results.find_all('a')
         games = {}
         for i, elem in enumerate(elems):
-            games[i] = {"name": elem.text, "type": "Video Game", "url": "TEST1", "img_url": "TEST2"}
-            # games.append(elem.text)
+            name = elem.find('span', class_='title').text
+            url = elem['href']
+            img_url = elem.find('img')['src']
+            print(img_url)
+            games[i] = {"name": name, "type": "Video Game", "url": url, "img_url": img_url}
 
         return games
 

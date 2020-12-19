@@ -20,7 +20,6 @@ def scrape_movies() -> dict:
             for i, y in enumerate(elem.find_all('a')):
                 movies[i] = {"name": y.text, "type": "Movie", "url": "TEST1", "img_url": "TEST2"}
 
-        print(movies)
         return movies
 
     except:
