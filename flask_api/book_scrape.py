@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Find the best books from nytimes and return as a dictionary.
-def book_scraper():
+def scrape_books():
     try:
         URL = 'https://www.nytimes.com/books/best-sellers/'
         page = requests.get(URL)
@@ -26,6 +26,3 @@ def book_scraper():
     except:
         print("Error loading books.")
         return []
-		
-print(book_scraper())
-
