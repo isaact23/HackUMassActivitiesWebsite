@@ -11,6 +11,7 @@ CORS(app)
 
 
 # Get data from /src/scrape/scrape.py. Called by App.js.
-@app.route('/scrape')
-def scrape_data():
-    return scrape.get_activity_data()
+# filters is a string of 0s and 1s representing which filters are enabled.
+@app.route('/scrape/<filters>')
+def scrape_data(filters=None):
+    return scrape.get_activity_data(filters)

@@ -5,6 +5,7 @@ html {
 }
 
 body {
+  background-color: rgb(180, 180, 180);
   margin: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +18,7 @@ code {
 
 header {
   background-color: lightgray;
-  width: 100%;
+  width: 1340px;
   height: 150px;
   margin-bottom: 20px;
 }
@@ -38,7 +39,7 @@ h1 {
 }
 
 .activity {
-  background-color: lightgray;
+  background-color: rgba(130, 220, 220);
   width: 300px;
   height: 250px;
   padding: 10px;

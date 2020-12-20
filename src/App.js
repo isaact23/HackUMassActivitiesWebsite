@@ -1,33 +1,18 @@
-import React, {useEffect, useState} from "react";
+import GenActivities from "./Activities";
+import Leftnav from "./Leftnav";
+import React from "react";
 
-// Use Flask to call python and scrape internet data, then
-// generate HTML for each activity found. Called by index.js.
-function App() {
-    // Call app.py to scrape internet for data
-    const [data, setData] = useState("Empty name");
-    useEffect(() => {
-        fetch('/scrape').then(res => res.json()).then(data => {
-          setData(data);
-        });
-        }, []
+export default function App() {
+
+    // Get the selected filters from Leftnav checkboxes
+    const filters = Leftnav.filters;
+    console.log(filters);
+
+    // Return the array of HTML activity elements.
+    return (
+        <div>
+            <Leftnav />
+            {GenActivities(filters)}
+        </div>
     );
-
-    // Generate an activity HTML element for each entry in the JSON returned by app.py
-    var activities = [];
-    for (const [key, value] of Object.entries(data)) {
-        activities.push(
-            <a href={value.url} target="_blank">
-                <div className="activity">
-                    <h2>{value.type}</h2>
-                    <p>{value.name}</p>
-                    <img src={value.img_url}/>
-                </div>
-            </a>
-        );
-    }
-
-    // Return the array of HTML activity elements.=
-    return activities;
 }
-
-export default App;

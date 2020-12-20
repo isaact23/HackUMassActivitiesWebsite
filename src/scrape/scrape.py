@@ -3,7 +3,8 @@ from src.scrape import game_scrape, movie_scrape
 
 
 # Get necessary data from internet and sort it. Called by App.js.
-def get_activity_data():
+def get_activity_data(filters):
+    print("Filters:", filters)
     # Scrape internet for data
     game_data = game_scrape.scrape_games()
     movie_data = movie_scrape.scrape_movies()
@@ -16,9 +17,7 @@ def get_activity_data():
         all_data.append(movie_data[i])
 
     # Sort alphabetically
-    print(all_data)
     all_data = sorted(all_data, key=lambda entry: entry['name'])
-    print(all_data)
 
     # Convert to dictionary form
     data_dict = {}
