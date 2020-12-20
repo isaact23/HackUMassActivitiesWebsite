@@ -3,8 +3,7 @@ from src.scrape import game_scrape, movie_scrape
 
 
 # Get necessary data from internet and sort it. Called by App.js.
-def get_activity_data(filters):
-    print("Filters:", filters)
+def get_activity_data():
     # Scrape internet for data
     game_data = game_scrape.scrape_games()
     movie_data = movie_scrape.scrape_movies()
