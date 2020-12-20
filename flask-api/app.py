@@ -4,7 +4,7 @@
 from flask import Flask
 from flask_cors import CORS
 # Import Python files to scrape the internet on the backend
-from src.scrape import scrape
+from . import scrape
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 CORS(app)
