@@ -17,7 +17,7 @@ popular websites and consolidated into one directory.
 
 ## The Code
 
-### `/flask-api/`
+### `/flask_api/`
 Contains a virtual environment for Python 3.7.9 and an `app.py` script that
 serves as a Flask backend for the project. The script queries
 `scrape.py` to mine the internet for glorious boredom-ending activities by calling scripts
