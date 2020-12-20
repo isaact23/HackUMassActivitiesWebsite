@@ -14,7 +14,6 @@ filters on the homepage and see activities update in real time.
 popular websites and consolidated into one directory.
 * Python for internet scraping.
 * Domain.com for our stufftodo.tech domain.
-* Google Cloud to host our website, complete with ReactJS and Flask.
 
 ## The Code
 
