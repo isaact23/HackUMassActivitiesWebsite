@@ -17,8 +17,8 @@ export default function GenActivities() {
         activityHtml.push(
             <a href={value.url} target="_blank">
                 <div className="activity">
-                    <h2>{value.type}</h2>
-                    <p>{value.name}</p>
+                    <p>{value.type}</p>
+                    <h2>{value.name}</h2>
                     <img src={value.img_url}/>
                 </div>
             </a>

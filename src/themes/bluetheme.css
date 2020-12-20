@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(200, 245, 245);
   margin: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,7 +17,7 @@ code {
 }
 
 header {
-  background-color: rgb(227, 173, 48);
+  background-color: rgb(60, 170, 170);
   width: 1340px;
   height: 150px;
   margin-bottom: 20px;
@@ -29,30 +29,8 @@ h1 {
   margin-left: 30px;
 }
 
-h2 {
-  font-size: 28px;
-  color: black;
-}
-h2:link {
-  color: black;
-}
-h2:visited {
-  color: black;
-}
-h2:hover {
-  color: black;
-}
-h2:active {
-  color: black;
-}
-
-p {
-  color: gray;
-  font-size: 20px;
-}
-
 .leftnav {
-  background-color: rgb(227, 173, 48);
+  background-color: rgb(60, 170, 170);
   width: 300px;
   height: 830px;
   padding: 10px;
@@ -61,10 +39,7 @@ p {
 }
 
 .activity {
-  background-color: white;
-  outline-style: solid;
-  outline-color: black;
-  color: darkgray;
+  background-color: rgb(100, 220, 220);
   width: 300px;
   height: 250px;
   padding: 10px;
