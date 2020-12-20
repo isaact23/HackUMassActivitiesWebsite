@@ -1,0 +1,1 @@
+from flask_api import app, scrape, game_scrape, movie_scrape
