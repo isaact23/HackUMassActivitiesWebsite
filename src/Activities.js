@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 // Generate an activity HTML element for each entry in activity_dict.
 export default function GenActivities() {
 
-    // Call app.py to scrape internet for data
+    // Call flask backend to scrape internet for data
     const [activityDict, setActivityDict] = useState("Empty name");
     useEffect(() => {
         fetch('/scrape').then(res => res.json()).then(data => {
